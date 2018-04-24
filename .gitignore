@@ -1,0 +1,10 @@
+.classpath
+.project
+.settings/
+target/
+
+*.jar
+*.war
+*.ear
+*.class
+!.mvn/wrapper/maven-wrapper.jar
