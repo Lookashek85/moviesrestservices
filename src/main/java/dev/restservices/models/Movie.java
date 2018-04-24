@@ -3,13 +3,21 @@ package dev.restservices.models;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 public class Movie {
 		
+	@NotNull
+	@Min(value=1)
 	private Long id;
-
+	
+	@Size(min=3, message="Title must have min 3 characters!")
 	private String title;
-
+	
+	@Size(min=3, message="Description must have min 3 characters!"  )
 	private String description;
 	
 	private List<Comment> comments;

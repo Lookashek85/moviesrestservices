@@ -42,7 +42,7 @@ public class MoviesDataServiceImpl implements MoviesDataService {
 	@Override
 	public void addMovie(Movie movie) {
 		 
-		
+		movies.add(movie);
 	}
 	
 
