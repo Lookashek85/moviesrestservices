@@ -40,12 +40,11 @@ public class MoviesController {
 			   
 			   throw new MoviesServiceException("List of movies exist but it's empty!");   
 		   }
-	 
 		   return new ResponseEntity<List<Movie>>(movies, HttpStatus.OK);
 	}
  
 	@PostMapping(path="/movies")
-	public ResponseEntity<Object> addMovie(@Valid @RequestBody Movie movie){
+	public ResponseEntity<Void> addMovie(@Valid @RequestBody Movie movie){
  
 		Long movieId = movie.getId();
 		 

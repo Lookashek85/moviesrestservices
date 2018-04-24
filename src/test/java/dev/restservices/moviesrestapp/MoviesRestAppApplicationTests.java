@@ -1,12 +1,14 @@
 package dev.restservices.moviesrestapp;
 
 import static org.assertj.core.api.Assertions.assertThat;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import dev.restservices.controllers.CommentsController;
 import dev.restservices.controllers.MoviesController;
 
 @RunWith(SpringRunner.class)
@@ -17,10 +19,13 @@ public class MoviesRestAppApplicationTests {
 	@Autowired
 	MoviesController moviesController;
 	
+	@Autowired
+	CommentsController commentsController;
+	
 	@Test
 	public void contextLoads() {
 		assertThat(moviesController).isNotNull();
-		
+		assertThat(commentsController).isNotNull();
 	}
 
 }
