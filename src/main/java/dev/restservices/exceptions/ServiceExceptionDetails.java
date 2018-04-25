@@ -1,8 +1,7 @@
 package dev.restservices.exceptions;
 
 import java.util.Date;
-
-
+ 
 public class ServiceExceptionDetails  {
  
 	  private Date timestamp;
@@ -28,8 +27,7 @@ public class ServiceExceptionDetails  {
 		return message;
 	}
 
- 
-
+  
 	public String getDetails() {
 		return details;
 	}

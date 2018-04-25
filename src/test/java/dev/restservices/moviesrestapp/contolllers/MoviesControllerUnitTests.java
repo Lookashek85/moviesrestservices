@@ -35,7 +35,7 @@ public class MoviesControllerUnitTests {
  
 
 	@Before
-	public static void setup() {
+	public void setup() {
 		Movie movie1 = new Movie(1, "Movie number 1", "Description of movie number 1");
 		Movie movie2 = new Movie(2, "Movie number 2", "Description of movie number 2");
 		moviesList = new ArrayList<>();
