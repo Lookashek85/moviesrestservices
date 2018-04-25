@@ -29,15 +29,13 @@ public class AppRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		
-		moviesDataService.clearMoviesCache();
-		
-		   for(int i = 0; i < 15 ;i++){
+		//For caching testing, when cache is disabled then each response will take approx 2 secs 
+		moviesDataService.clearMoviesCache(); 
+		     for(int i = 0; i < 15 ;i++){
 			   logger.info(".... Fetching movies");
 				  logger.info("Geting movies "+(i+1) +" time..... -> "+ moviesDataService.getMoviesList());
-		   }
-		 
-		   
-		
+		   }  
+
 	}
 
 }

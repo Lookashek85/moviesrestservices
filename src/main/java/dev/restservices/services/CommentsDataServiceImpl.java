@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
@@ -14,6 +16,8 @@ import dev.restservices.models.Comment;
 @Service
 @CacheConfig(cacheNames="comments")
 public class CommentsDataServiceImpl implements CommentsDataService {
+	
+	private static Logger logger = LoggerFactory.getLogger(CommentsDataServiceImpl.class);
 	
 	static Map<Long, List<Comment>> commentsMap ;
 	static{
@@ -37,22 +41,20 @@ public class CommentsDataServiceImpl implements CommentsDataService {
 		 commentsMap.put(comment3.getMovieId(), commentsMovie2);
 		 
 	}
-	
  
 	@Override
 	public Comment addComment(Long movieId, Comment comment) {
 		//NO real implementation required..
 		return null;
 	}
-
-	
+ 
 	@Override
 	@Cacheable(cacheNames="comments")
-	public List<Comment> getCommentsForTheMovie(long movieId) {
-		 
+	public List<Comment>getCommentsForTheMovie(long movieId) {
+	
+		logger.info("Getting comments for movie : "+movieId);
+
 		return commentsMap.get(movieId);
 	}
-	
-	
  
 }

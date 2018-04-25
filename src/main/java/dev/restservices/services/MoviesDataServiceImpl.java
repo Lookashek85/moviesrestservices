@@ -23,7 +23,10 @@ public class MoviesDataServiceImpl implements MoviesDataService {
 	@Autowired
 	CommentsDataService commentsDataService;
 	
+	
+	
 	private static List<Movie> movies = new ArrayList<>();
+	
 	//Loading some dummy data , typically data would come from some DAO
 	static{
 		 
@@ -32,23 +35,22 @@ public class MoviesDataServiceImpl implements MoviesDataService {
 	    movies.add(movie1);
 		movies.add(movie2);
 	}
- 
+  
+	
 	@Override
 	@Cacheable(cacheNames = "movies"/*,key = "#root.methodName"*/)
 	public List<Movie> getMoviesList() {
 		
 		logger.info("Executing: " + this.getClass().getSimpleName() + ".getMoviesList()");
 		
-		simulateSlowGetMovies();
+	 simulateSlowGetMovies();
 		
 		for(Movie movie : movies){
-			//List<Comment> comments = commentsDataService.getCommentsForTheMovie(movie.getId()); 
-			movie.setComments(commentsDataService.getCommentsForTheMovie(movie.getId()));
+			 List<Comment> comments = commentsDataService.getCommentsForTheMovie(movie.getId()); 
+			 movie.setComments(comments);
 		}
-		
 		return movies;
 	}
-	
  
 	@Override
 	public void addMovie(Movie movie) {

@@ -1,15 +1,19 @@
 package dev.restservices;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
 @EnableCaching
-public class MoviesRestAppApplication {
- 
-	public static void main(String[] args) {
-		SpringApplication.run(MoviesRestAppApplication.class, args);
-	}
- 
+public class MoviesRestAppApplication  {
+	  
+		Logger log = LoggerFactory.getLogger(this.getClass().getName());
+		
+		public static void main(String[] args) {
+			SpringApplication.run(MoviesRestAppApplication.class, args);
+		}
+	  
 }

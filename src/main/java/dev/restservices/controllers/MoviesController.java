@@ -26,23 +26,25 @@ public class MoviesController {
 
 	private static Logger logger = LoggerFactory.getLogger(MoviesController.class);
 	
+	
 	@Autowired   //Simulating DAO 
 	MoviesDataService moviesDataService;
 	
 
-	@GetMapping(path="/movies")
+    @GetMapping(path="/movies")
 	public ResponseEntity<List<Movie>> getMovies(){
+    	
 		List<Movie> movies = moviesDataService.getMoviesList();
 		   
 		   if(movies == null ){
 			   throw new MoviesServiceException("Couldn't find the list of movies");
 		   }
-		   else if(movies.isEmpty()){
-			   
+		   else if(movies.isEmpty()){   
 			   throw new MoviesServiceException("List of movies exist but it's empty!");   
 		   }
 		   return new ResponseEntity<List<Movie>>(movies, HttpStatus.OK);
 	}
+	
  
 	@PostMapping(path="/movies")
 	public ResponseEntity<Void> addMovie(@Valid @RequestBody Movie movie){
