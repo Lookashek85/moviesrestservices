@@ -27,11 +27,12 @@ public class MoviesController {
 	private static Logger logger = LoggerFactory.getLogger(MoviesController.class);
 	
 	@Autowired   //Simulating DAO 
-	MoviesDataService moviesService;
+	MoviesDataService moviesDataService;
 	
+
 	@GetMapping(path="/movies")
 	public ResponseEntity<List<Movie>> getMovies(){
-		List<Movie> movies = moviesService.getMoviesList();
+		List<Movie> movies = moviesDataService.getMoviesList();
 		   
 		   if(movies == null ){
 			   throw new MoviesServiceException("Couldn't find the list of movies");

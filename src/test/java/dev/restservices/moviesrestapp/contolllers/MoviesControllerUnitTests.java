@@ -6,7 +6,7 @@ import static org.mockito.Mockito.when;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.BeforeClass;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -34,7 +34,7 @@ public class MoviesControllerUnitTests {
 	private MoviesController moviesController;
  
 
-	@BeforeClass
+	@Before
 	public static void setup() {
 		Movie movie1 = new Movie(1, "Movie number 1", "Description of movie number 1");
 		Movie movie2 = new Movie(2, "Movie number 2", "Description of movie number 2");

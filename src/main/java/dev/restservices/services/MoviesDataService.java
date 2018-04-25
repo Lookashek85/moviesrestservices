@@ -8,5 +8,5 @@ public interface MoviesDataService {
 	
 	public List<Movie> getMoviesList();
 	public void addMovie(Movie movie);
-
+	public void clearMoviesCache();
 }
